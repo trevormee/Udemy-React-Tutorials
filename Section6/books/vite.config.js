@@ -17,6 +17,14 @@ export default defineConfig({
   ],
   server: {
     port: 3000,
+    proxy: {
+      // Proxy API requests starting with /books to the backend server
+      '/books': {
+        target: 'http://localhost:3001',
+        changeOrigin: true,
+        secure: false,
+      }
+    }
   },
   optimizeDeps: {
     force: true,
