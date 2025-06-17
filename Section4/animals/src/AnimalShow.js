@@ -1,5 +1,7 @@
 import './AnimalShow.css';
 import { useState } from 'react';
+
+// Import our animal images
 import bird from './svg/bird.svg';
 import cat from './svg/cat.svg';
 import cow from './svg/cow.svg';
@@ -8,6 +10,7 @@ import gator from './svg/gator.svg';
 import heart from './svg/heart.svg';
 import horse from './svg/horse.svg';
 
+// Map our images to an object
 const svgMap = {
     bird,
     cat,
@@ -17,10 +20,17 @@ const svgMap = {
     horse
 };
 
+/*
+    AnimalShow Component
+*/
 function AnimalShow({ type })
 {
+    // Define a piece of state clicks with default value of 0
+    // 'clicks' can be thought of as an integer here
     const [clicks, setClicks] = useState(0);
 
+    // Event Handler for when a user clicks on an image of an animal
+    // to make the heart grow larger
     const handleClick = () => {
         setClicks(clicks + 1);
     };
