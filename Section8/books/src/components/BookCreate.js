@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import BooksContext from '../context/books';
 
-function BookCreate(props) {
+function BookCreate() {
 
-    const { onCreate } = props;
+    const { createBook } = useContext(BooksContext);
 
     const [title, setTitle] = useState('');
 
@@ -16,7 +17,7 @@ function BookCreate(props) {
     // or pressing the Enter key
     const handleSubmit = (event) => {
         event.preventDefault(); 
-        onCreate(title);    
+        createBook(title);    
         setTitle('');   // Clears title after user creates a new book
     };
 
