@@ -2,6 +2,7 @@ import './App.css';
 import { useState } from 'react';
 import AnimalShow from './AnimalShow';
 
+// returns a random animal from the animals array
 function getRandomAnimal() {
     const animals = ['bird', 'cat', 'cow', 'dog', 'gator', 'horse'];
 
@@ -9,13 +10,19 @@ function getRandomAnimal() {
     // Math.floor() rounds down to an integer value
     return animals[Math.floor(Math.random() * animals.length)]
 }
+
 console.log(getRandomAnimal());
+
 
 function App()  {
     
+    // Create a new piece of state 'animals' as an empty array of animals
     const [animals, setAnimals] = useState([]);
     
+    // Event Handler when a user clicks the "Add Animal" button on screen
     const handleClick = () => {
+        // Update our animals[] piece of state by taking the current animals
+        // array and adding a random animal to the end of it
         setAnimals([...animals, getRandomAnimal()]);
     };
 
