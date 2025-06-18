@@ -1,4 +1,5 @@
 // 1) Import the React and ReactDOM libs
+import './index.css';       // Import tailwind from index.css
 import React from 'react';;
 import ReactDOM from 'react-dom/client';
 import App from './App';
