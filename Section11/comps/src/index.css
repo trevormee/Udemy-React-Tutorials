@@ -1,0 +1,9 @@
+@import "tailwindcss"; 
+
+/* 
+    'Every time we see a buton with an svg(like an image, icon)
+    we want to add a margin-right of 5px' 
+*/
+button > svg {
+    margin-right: 5px;
+}
