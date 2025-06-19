@@ -3,16 +3,18 @@ import BookCreate from './components/BookCreate';
 import BookList from './components/BookList'
 
 function App() {
-   
+    
+    // Create a piece of state 'books' and init. as an empty array
     const [books, setBooks] = useState([]);
 
     // Event Handler for adding a new book
     const createBook = (title) => {
         const updatedBooks = [
-            ...books, 
-            {id: Math.round(Math.random() * 9999), 
-            title: title}
+            ...books,       // take in the current array of books
+            {id: Math.round(Math.random() * 9999), // generate a random id for each book
+            title: title}   // add the new books title to the 'books' array
     ]
+        // update the books array piece of state with the newly created book
         setBooks(updatedBooks);
     };
 
@@ -30,9 +32,10 @@ function App() {
     const editBookById = (idToEdit, newTitle) => {
         const updatedBooks = books.map((book) => {
             if(book.id === idToEdit) {
-                return { ...book, title: newTitle};
+                // take in curr. 'books' and append the title of the edited book
+                return { ...book, title: newTitle}; 
             }
-
+            // If no edit is made, simply return 
             return book;
         });
 
