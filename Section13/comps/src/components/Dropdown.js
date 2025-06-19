@@ -3,17 +3,21 @@ import {useState, useEffect, useRef} from 'react';
 import { GoChevronDown } from 'react-icons/go';
 import Panel from './Panel';
 
+// Dropdown component that takes in the colors options, the selection (value),
+// and handleSelect() function from DropdownPage
 function Dropdown({ options, value, onChange }) {
 
+    // 'isOpen' piece of state (like a boolean) to check if the dropdown is open
     const [isOpen, setIsOpen] = useState(false);
-
+    
+    // create an element to access/manipulate specific DOM elements
     const divElement = useRef();
 
     useEffect(() => {
         const handler = (event) => {
 
             // Simple check to see if we even have a reference to an element
-            // If we removed 'ref={divElement} from our return statement,
+            // If we removed 'ref={divElement}' from our return statement,
             // this useEffect function would exit here
             if(!divElement.current){
                 return;
@@ -33,11 +37,14 @@ function Dropdown({ options, value, onChange }) {
         };
     }, []);
 
+    // Event handler to close the dropdown options 
     const handleClick = () => {
         // Close Dropdown
         setIsOpen(!isOpen);
     };
 
+    // Event handler to close the dropdown after a user selects an item,
+    // 
     const handleOptionClick = (option) => {
         // Close the dropdown
         setIsOpen(false);

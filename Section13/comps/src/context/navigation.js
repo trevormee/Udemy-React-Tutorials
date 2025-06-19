@@ -2,8 +2,11 @@ import { createContext, useState, useEffect } from "react";
 
 const NavigationContext = createContext();
 
+// Context setup so that any component that shares/uses the following pieces of states
+// and functions, does not have to passed thru the prop system
 function NavigationProvider({children}) {
 
+    // Declare a piece of state 'currentPath' and init. it with the current pathname in the addr bar
     const [currentPath, setCurrentPath] = useState(window.location.pathname);
 
     useEffect(() => {
@@ -11,6 +14,9 @@ function NavigationProvider({children}) {
             setCurrentPath(window.location.pathname);
         };  
 
+        // popstate event listener to prevent our JS project from re-rendering and dumping all of our
+        // JS code/data each time we go to a differnt page (our project doenst actually go to different
+        // web pages, we just trick the user into thinking it does by changing the addr. bar)
         window.addEventListener('popstate', handler);
     
         // Clean up function
