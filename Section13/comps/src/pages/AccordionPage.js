@@ -1,7 +1,9 @@
 import Accordion from "../components/Accordion";
 
+// AccordianPage component responsible for instantiating the Accordion component
 function AccordionPage() {
 
+    // An array of hard coded items that will be used in our accordion
     const items = [
         {
             id: '321a',

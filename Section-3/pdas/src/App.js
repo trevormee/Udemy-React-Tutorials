@@ -1,10 +1,12 @@
-import 'bulma/css/bulma.css';
-
 import ProfileCard from './ProfileCard';
+import 'bulma/css/bulma.css';       // Free, open source CSS framework
+
+// Import our images
 import AlexaImage from './images/alexa.jpg';
 import SiriImage from './images/siri.jpg';
 import CortanaImage from './images/cortana.jpg';
 
+// Main App Component
 function App() {
     return (
         <div>

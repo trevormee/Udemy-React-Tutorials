@@ -1,7 +1,11 @@
+/*
+    ProfileCard component to structure our cards
+*/
 
+//                   Pass in our various props
 function ProfileCard({title, handle, image, description}) {
-    //const {title, handle} = props;
-
+    // For each card, display the card image and card content (title,
+    // handle, and description)
     return (
         <div className="card">
             <div className="card-image">
@@ -19,11 +23,6 @@ function ProfileCard({title, handle, image, description}) {
             </div>
 
         </div>
-        /*
-            img src={image} alt="pda logo" height={200}/>
-            <div>Title is: {title} </div>
-            <div>Handle is: {handle} </div>
-        */
     );
 }
 

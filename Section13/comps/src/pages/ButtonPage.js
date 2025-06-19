@@ -1,9 +1,11 @@
 import { GoBell, GoCloudDownload, GoDatabase } from 'react-icons/go';
 import Button from '../components/Button';
 
+// ButtonPage component responsible for rendering our buttons by calling our
+// 'Button' component
 function ButtonPage() {
 
-    const handleClick = () => {};
+    const handleClick = () => {};       // not used
 
     return (
         <div>
