@@ -1,14 +1,18 @@
 import { createContext, useState } from 'react';
 import axios from 'axios';
 
+// Create a context of books so that we do not have to pass down
+// each books prop from App --> every other component like we did
+// in section 6-7. Returns all of the pieces of state and functions
+// so that they are usuable elsewhere in our project.
 const BooksContext = createContext();
 
 function Provider({ children })
 {
-
+    // Create a piece of state 'books' and init. as an empty array
     const [books, setBooks] = useState([]);
 
-     // Section 7: fetchBooks on startup
+     // Async function to fetch books on startup
     const fetchBooks = async () => {
         const response = await axios.get('/books');
 
@@ -17,6 +21,7 @@ function Provider({ children })
 
     // Event Handler for adding a new book
     const createBook = async (title) => {
+        // make an api call to our database to get the current list of books 
         const response = await axios.post('/books', {
             title
         });
@@ -26,12 +31,11 @@ function Provider({ children })
             response.data   // at the end, add the new book that the user added
         ];
 
+        // update the books array piece of state with the newly created book
         setBooks(updatedBooks);
     };
 
-
-    // Section 7
-    // Event Handler to delete a book by its ID
+    // Async Event Handler to delete a book by its ID in our DB
     const deleteBookById = async (idToRemove) => {
         
         await axios.delete(`/books/${idToRemove}`);
@@ -44,7 +48,7 @@ function Provider({ children })
 
     };
 
-    // Section 7
+    // Async Event handler to edit a book
     const editBookById = async (id, newTitle) => {
         const response = await axios.put(`/books/${id}`, {
             title: newTitle,

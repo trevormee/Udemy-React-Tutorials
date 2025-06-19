@@ -5,15 +5,18 @@ import BooksContext from '../context/books';
 
 function BookShow(props) {
 
+    // Get the book props passed down from BookList
     const {book} = props;
 
+    // Use the deleteBookById() function from BooksContext
     const {deleteBookById} = useContext(BooksContext);
 
+    // Event handle when a user clicks the icon to delete a book
     const handleDeleteClick = () => {
         deleteBookById(book.id);
     };
 
-    // Define a state for editing a book
+    // Define a state for editing a book (like a boolean)
     const [showEdit, setShowEdit] = useState(false);
 
     // Event handler for editing a book
@@ -22,7 +25,7 @@ function BookShow(props) {
     };
 
     const handleSubmit = () => {
-        setShowEdit(false);
+        setShowEdit(false);     // no longer display the edit form after a user submits
     };
 
     let content = <h3>{book.title}</h3>;

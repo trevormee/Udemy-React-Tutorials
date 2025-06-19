@@ -5,10 +5,13 @@ import { useEffect } from 'react';
 import {useContext} from 'react';
 import BooksContext from './context/books'
 
+// Main App component of our project
 function App() {
-   
+    
+    // Use the BooksContext from ./context/books.js
     const {fetchBooks} = useContext(BooksContext);
 
+    // Fetch our current list of books from the database only on first render
     useEffect(() => {
         fetchBooks();
     }, []);
