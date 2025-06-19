@@ -2,6 +2,7 @@
 
 import axios from 'axios'
 
+// Searches for images based on a query 'term' provided by a user
 const searchImages = async (term) => {
     const response= await axios.get('https://api.unsplash.com/search/photos', {
         headers: {

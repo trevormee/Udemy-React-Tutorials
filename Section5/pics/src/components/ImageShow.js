@@ -1,4 +1,5 @@
 
+// ImageShow component that returns & displays an image fetched from the unsplash api
 function ImageShow({image}) {
     return (
         <div>

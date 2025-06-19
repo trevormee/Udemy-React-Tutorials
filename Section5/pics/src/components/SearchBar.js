@@ -1,17 +1,21 @@
-
 import { useState } from 'react';
 
+// SearchBar component that takes in the handleSubmit event handler
+// defined in App.js
 function SearchBar({ onSubmit }) {
     
+    // Create a piece of state 'term' and init. as an empty string
     const [term, setTerm] = useState('');
 
     // Event Handler
     const handleFormSubmit = (event) => {
-        event.preventDefault();  // Prevents the browser from exucuting the default action of an event
+        // Prevents the browser from exucuting the default action of an event
+        event.preventDefault();  
+        // Call the onSubmit prop to call handleSubmit in App.js
         onSubmit(term);
     };
 
-    // Event Handler for text input
+    // Event Handler for live text input
     const handleChange = (event) => {
         setTerm(event.target.value);
     };
