@@ -31,15 +31,17 @@ function App()  {
     // In this case, we are mapping each animal into the (animal, index)
     // arrow function
     // Ex: If you click the button once after restarting browser and the random animal
-    // is cat, cat is passed to the 'animal' paramter and it will have an index of 1
+    // is cat, cat is passed to the 'animal' paramater and it will have an index of 1
     const renderedAnimals = animals.map((animal, index) => {
         return <AnimalShow type={animal} key={index} />
     });
 
     return ( 
         <div className='app'>
+            {/* Pass the handleClick event handler as a prop named 'onClick' to */}
             <button onClick={handleClick}>Add Animal</button>
             <div className='animal-list'>
+                {/* Display the rendered animal images */}
                 Animls to show: {renderedAnimals}
             </div>
         </div>

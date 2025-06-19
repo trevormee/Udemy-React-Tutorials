@@ -25,7 +25,7 @@ const svgMap = {
 */
 function AnimalShow({ type })
 {
-    // Define a piece of state clicks with default value of 0
+    // Define a piece of state 'clicks' with default value of 0
     // 'clicks' can be thought of as an integer here
     const [clicks, setClicks] = useState(0);
 
